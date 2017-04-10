@@ -28,7 +28,7 @@ class S(BaseHTTPRequestHandler):
             , ('garden', lambda r: garden.post(r, data, GPIO)) \
             ])
 
-def run(server_class=HTTPServer, handler_class=S, port=3000):
+def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print 'Starting httpd...'
