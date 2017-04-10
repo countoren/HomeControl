@@ -40,7 +40,7 @@ li a:hover {
 		<script type='text/javascript'>
 function switchLight(onOff){
 	var r = new XMLHttpRequest(); 
-	r.open("POST", "http://192.168.0.107:3000/livingRoom/light", true);
+	r.open("POST", "http://192.168.0.107/livingRoom/light", true);
 	r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	r.onreadystatechange = function () {
 		if (r.readyState != 4 || r.status != 200) return; 
