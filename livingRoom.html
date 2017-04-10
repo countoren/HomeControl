@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<style>
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #111;
+}
+		</style>
+	</head>
+
+	<body>
+		<h1>Wellcome to Rozen's Living Room !!!!!!</h1>
+		<br />
+		<ul>
+			<li onclick="switchLight('on');"><a href="#on">On</a></li>
+			<li onclick="switchLight('off');"><a href="#off">Off</a></li>
+		</ul>
+
+
+
+		<script type='text/javascript'>
+function switchLight(onOff){
+	var r = new XMLHttpRequest(); 
+	r.open("POST", "http://192.168.0.107:3000/livingRoom/light", true);
+	r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	r.onreadystatechange = function () {
+		if (r.readyState != 4 || r.status != 200) return; 
+		console.log(r.responseText);
+	};
+	r.send(onOff);
+};
+
+		</script>
+	</body>
+</html>
